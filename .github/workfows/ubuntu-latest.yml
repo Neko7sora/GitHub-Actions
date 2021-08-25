@@ -1,0 +1,19 @@
+name: ubuntu-latest update upgrade
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: ubuntu-latest update upgrade
+        run: |
+          sudo apt-get update
+          sudo apt-get upgrade
